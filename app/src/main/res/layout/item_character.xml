@@ -19,13 +19,13 @@
             android:layout_height="170dp"
             android:importantForAccessibility="no"
             android:scaleType="fitXY"
-            android:src="@tools:sample/avatars"
+            tools:src="@tools:sample/avatars"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/text_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"

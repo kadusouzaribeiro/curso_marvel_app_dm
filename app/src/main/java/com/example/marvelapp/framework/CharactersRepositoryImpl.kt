@@ -4,6 +4,8 @@ import androidx.paging.PagingSource
 import com.example.core.data.repository.CharactersRemoteDataSource
 import com.example.core.data.repository.CharactersRepository
 import com.example.marvelapp.framework.network.response.DataWrapperResponse
+import com.example.marvelapp.framework.paging.CharactersPagingSource
+import com.example.core.domain.model.Character
 import javax.inject.Inject
 
 class CharactersRepositoryImpl @Inject constructor(
@@ -11,6 +13,6 @@ class CharactersRepositoryImpl @Inject constructor(
 ): CharactersRepository {
 
     override fun getCharacters(query: String): PagingSource<Int, Character> {
-        return CharactersPaging()
+        return CharactersPagingSource(remoteDataSource, query)
     }
 }

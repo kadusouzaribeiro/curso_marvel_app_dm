@@ -17,7 +17,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.internal.stubbing.answers.ThrowsException
 import org.mockito.junit.MockitoJUnitRunner
 import java.lang.RuntimeException
 
@@ -44,7 +43,7 @@ class CharactersPagingSourceTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `should return a success load result when load is called`() = runBlockingTest {
+    fun shouldReturnASuccessLoadResultWhenLoadIsCalled() = runBlockingTest {
         //Arrange
         whenever(remoteDataSource.fetchCharacters(any()))
             .thenReturn(dataWrapperResponseFactory.create())

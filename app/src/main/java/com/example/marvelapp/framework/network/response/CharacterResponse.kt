@@ -16,10 +16,6 @@ fun CharacterResponse.toCharacterModel(): Character {
     return Character(
         id = this.id,
         name = this.name,
-        imageUrl = "${this.thumbnail.path}.${this.thumbnail.extension}".also {
-            if (!it.contains("https")) {
-                it.replace("http:","https:")
-            }
-        }
+        imageUrl = this.thumbnail.getHttpsUrl()
     )
 }

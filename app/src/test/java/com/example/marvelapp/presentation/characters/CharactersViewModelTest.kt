@@ -7,13 +7,11 @@ import com.example.testing.model.CharacterFactory
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -48,7 +46,7 @@ class CharactersViewModelTest {
 
     @Test
     fun `should validate the paging data object values when calling charactersPagingData`() =
-        runBlockingTest {
+        runTest {
             whenever(getCharactersUseCase.invoke(any())
             ).thenReturn(
                 flowOf(
@@ -63,7 +61,7 @@ class CharactersViewModelTest {
 
     @Test(expected = RuntimeException::class)
     fun `should throw an exception when the calling to the use case returns an exception`() =
-        runBlockingTest {
+        runTest {
             whenever(getCharactersUseCase.invoke(any()))
                 .thenThrow(RuntimeException())
 
